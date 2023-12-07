@@ -25,11 +25,33 @@ function pwReg(text){
 }
 
 
+// DOM ELEMENTS
+const emailInput = document.querySelector('.user-email-input');
+const pwInput = document.querySelector('.user-password-input');
+const loginBtn = document.querySelector('.btn-login');
+const loginForm = document.querySelector('.login-form');
 
 
+// Input validator function
+function validateInput(regValidate, input) {
+  input.addEventListener('input', () => {
+    regValidate(input.value) || input.value === '' ? 
+    input.classList.remove('is--invalid') : input.classList.add('is--invalid');
+  })
+}
 
+validateInput(emailReg, emailInput);
+validateInput(pwReg, pwInput);
 
-
+loginForm.addEventListener('submit', () => {
+  if (emailInput.value === user.id && pwInput.value === user.pw) {
+    window.location.href = 'welcome.html';
+    alert('succes');
+  } else {
+    window.location.href = 'welcome.html';
+    alert('try again');
+  }
+});
 
 
 
