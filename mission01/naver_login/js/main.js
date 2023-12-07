@@ -40,16 +40,19 @@ function validateInput(regValidate, input) {
   })
 }
 
+// Call input validator functions
 validateInput(emailReg, emailInput);
 validateInput(pwReg, pwInput);
 
-loginForm.addEventListener('submit', () => {
+
+// Form event listener 
+loginForm.addEventListener('submit', (e) => {
+  e.preventDefault();   
   if (emailInput.value === user.id && pwInput.value === user.pw) {
+    alert('웰컴~');
     window.location.href = 'welcome.html';
-    alert('succes');
   } else {
-    window.location.href = 'welcome.html';
-    alert('try again');
+    alert('너 누구야?!');
   }
 });
 
