@@ -1,12 +1,18 @@
 # 네이버 로그인 페이지 구현
 
+## 결과
+
+![Recording 2023-12-08 at 16 32 26](https://github.com/dldnlee/js-homework/assets/83799987/77850710-51e3-4d4a-bc17-0c9a92efb9ad)
+
+
 ## 자바스크립트 코드
 
 ## 인풋 양식에 따른 에러 메세지 표시 함수 `validateInput`
 위에 사전에 구성되어있던 emailReg과 pwReg함수는 인풋폼에 들어간 내용과 설정한 폼이
-일치하는지에 대한 True / False 값을 반환 해주는 함수들입니다. 이 두함수를 활용할 수 있는 `validateInput` 함수를 만들었습니다. `validateInput` 함수는
+일치하는지에 대한 True / False 값을 반환 해주는 함수입니다. 두함수를 활용할 수 있는 `validateInput` 함수를 만들었습니다. `validateInput` 함수는
 인풋 폼안 에 있는 내용의 양식을 확인하는 함수`regValidate`, 인풋 DOM Element `input`, 그리고 양식 에러 메세지를 조정해 줄 수 있는 html/css클래스`invalidMsg`를 매개변수로 받습니다.
-이렇게 매개변수를 사용함으로서 재상용 가능해졌습니다.
+
+매개변수를 사용함으로서 재상용 가능해졌으며 같은 코드를 재입력할 필요가 없어졌습니다.
 
 해당 함수 내부에는 인풋 폼에 이벤트가 적용될 때 마다 적용이 되는 함수가 있습니다.
 - 이벤트가 적용될 때마다 작동되는 함수/기능: 
@@ -38,10 +44,6 @@ function authenticateUser(form, email, pw, emailData, pwData) {
   });
 }
 ```
-
----
-- [x] 재사용 가능한 함수를 분리하고 함수를 중심으로 설계하는 방법에 대해 학습합니다.
-
 
 
 
