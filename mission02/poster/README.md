@@ -28,6 +28,11 @@ function setAudio(element, source) {
 function removeCSSClass(node, cssClass) {
   node.classList.remove(cssClass);
 }
+
+// 해당 노드에서 원하는 CSS 클래스 추가해주는 함수
+function addCSSClass(node, cssClass) {
+  node.classList.add(cssClass);
+}
 ```
 위에 있는 함수들을 사용해서 원하는 블록에 이벤트 리스너를 할당했을 때 쉽고 빠르게 원하는 CSS요소들을 쉽게 다룰 수 있습니다.
 
@@ -42,7 +47,8 @@ function removeCSSClass(node, cssClass) {
 ```
 
 ## 클릭 이벤트 발생시 실행되는 함수 설명
-1. 불필요한 행동 방지 preventDefault, 초기화하기(모든 요소에서 is-active 제거하기)
+### 1. 불필요한 행동 방지와 초기화
+e.preventDefault() 메서드를 활용해서 불필요한 실행을 방지하고, 중복을 방지하기 위해 클릭을할 때 마다 모든 요소에서 `is-active`CSS 클래스 제거하기.
 ```
 nav.addEventListener('click', (e) => {
     // 클릭시 실행되는 기본값 차단
@@ -54,9 +60,12 @@ nav.addEventListener('click', (e) => {
     }
 ```
 
-2. 사용자가 어디에 클릭을 했는지 target변수에 지정 후, 클릭한 요소에서 가장 가까운 li 요소를 li 변수에 지정. 마지막으로 사용자가 클릭한 지점이 li 요소가 아니라면, 아무것도 하지 않습니다.
+### 2. 타겟 구하기
+사용자가 어디에 클릭을 했는지 target변수에 지정 후, 클릭한 요소에서 가장 가까운 li 요소를 li 변수에 지정. 마지막으로 사용자가 클릭한 지점이 li 요소가 아니라면, 아무것도 하지 않습니다.
 ```
 let target = e.target
-    let li = target.closest('li');
-    if(!li) return;
+let li = target.closest('li');
+if(!li) return;
 ```
+
+### 3. HTML 마크업에 지정되어 있는 `data-index`값을 활용해서 데이터 객체에 있는 요소 추출
