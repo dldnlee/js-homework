@@ -28,6 +28,9 @@ function setAudio(element, source) {
   element.src = source;
 }
 
+function removeCSSClass(node, cssClass) {
+  node.classList.remove(cssClass);
+}
 
 // 바로 실행되는 IIFE 함수 선언/실행
 (function(){
@@ -44,7 +47,7 @@ function setAudio(element, source) {
 
     // 모든 요소에서 'is-active'이라는 CSS클래스 없애기
     for(const listItem of ul.children) {
-      listItem.classList.remove('is-active'); 
+      removeCSSClass(listItem, 'is-active');
     }
 
     // 클릭 타겟 구하고, 타겟이 li가 아니라면 아무것도 실행하지 않음
